@@ -25,10 +25,6 @@ module.exports = {
                 test: /\.css$/, // применять это правило только к CSS-файлам
                 use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
             },
-            /*{
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [{loader: 'file-loader?name=./vendor/[name].[ext]'}],
-            },*/
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
                 loader: 'file-loader?name=./vendor/fonts/[name].[ext]'
