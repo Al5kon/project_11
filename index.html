@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="style.850603499110784a8eda.css?d9893b873a1525c296d2">
+</head>
+<body>
+  <div class="root">
+    <header class="header root__section">
+      <img src="./src/images/logo.svg" alt="mesto logo" class="logo">
+    </header>
+    <div class="profile root__section">
+      <div class="user-info">
+        <div class="user-info__photo"></div>
+        <div class="user-info__data">
+          <h1 class="user-info__name"></h1>
+          <p class="user-info__job"></p>
+          <button class="user-info__edit">Edit</button>
+        </div>
+        <button class="button user-info__button">+</button>
+      </div>
+    </div>
+    <div class="places-list root__section">
+    </div>
+    <div class="popup" id="info">
+      <div class="popup__content">
+        <img src="./src/images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form" name="newplace">
+          <input type="text"  minlength=2 maxlength="30" name="place" required id="place" autocomplete="off" class="popup__input popup__input_type_name" placeholder="Название">
+          <span id="error-place"></span> 
+          <input type="url" required name="link" id="link" autocomplete="off" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку">
+          <span id="error-link"></span>
+          <button type class="button popup__button" id="submit-newplace">+</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup" id="profile" >
+        <div class="popup__content">
+          <img src="./src/images/close.svg" alt="" class="popup__close">
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <form class="popup__form" name="newprofile">
+            <input type="text" required minlength="2" maxlength="30" name="name" id="name" autocomplete="off" class="popup__input popup__input_type_name">
+            <span id="error-name"></span>
+            <input type="text" required minlength="2" maxlength="30" name="profession" id="profession" autocomplete="off" class="popup__input popup__input_type_link-url">
+            <span id="error-profession"></span>
+            <button type class="button popup__button" id="submit-newprofile" >Сохранить</button>
+          </form>
+        </div>
+      </div>
+
+    <div class="bigpicture">
+      <div class="bigpicture__content">
+        <img class="bigpicture__image" alt="">
+        <img src="./src/images/close.svg" alt="" class="bigpicture__close">
+      </div>
+    </div>
+    
+  </div>
+  <script src="main.e74e4bfd575840db8384.js?d9893b873a1525c296d2"></script>
+</body>
+</html>
