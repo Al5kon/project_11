@@ -1,4 +1,6 @@
-{
+//{
+  import "./pages/style.css";
+
   /* Переменные */
   const  placesList = document.querySelector(".places-list");
   const formEdit = document.forms.newplace;
@@ -8,6 +10,7 @@
   const userInfoAvatar = document.querySelector(".user-info__photo");
   const bigPictureCloseButton = document.querySelector(".bigpicture__close");
   const bigPicture = document.querySelector(".bigpicture");
+  const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2';
   
   // Запросы
 
@@ -90,7 +93,7 @@
     }
     //Отправляет запрос на загрузку начальных карточек
     load () {
-      new Api(this.render, 'http://95.216.175.5/cohort2/cards', 'GET',
+      new Api(this.render, `${serverUrl}/cards`, 'GET',
       '3004026e-6e54-422c-bbcd-d371103b5597', 'application/json').createRequest ();
     }
 
@@ -238,7 +241,9 @@
     sendNewPlace (link, place) {
       this.link = link;
       this.place = place;
-      new Api(this.drawNewCard, 'http://95.216.175.5/cohort2/cards', 'POST','3004026e-6e54-422c-bbcd-d371103b5597','application/json')
+      /*new Api(this.drawNewCard, 'http://95.216.175.5/cohort2/cards', 'POST','3004026e-6e54-422c-bbcd-d371103b5597','application/json')
+        .createRequestExtraCard( this.place, this.link);*/
+        new Api(this.drawNewCard, `${serverUrl}/cards`, 'POST','3004026e-6e54-422c-bbcd-d371103b5597','application/json')
         .createRequestExtraCard( this.place, this.link);
     }
     //Отрабатывает полученную от сервер информацию о новом месте
@@ -282,7 +287,9 @@
     sendEditProfile (name, profession) {
       this.name = name;
       this.profession = profession;
-      new Api(this.drawEditProfile, 'http://95.216.175.5/cohort2/users/me', 'PATCH','3004026e-6e54-422c-bbcd-d371103b5597',
+      /*new Api(this.drawEditProfile, 'http://95.216.175.5/cohort2/users/me', 'PATCH','3004026e-6e54-422c-bbcd-d371103b5597',
+      'application/json').createRequestProfile( this.name, this.profession);*/
+      new Api(this.drawEditProfile, `${serverUrl}/users/me`, 'PATCH','3004026e-6e54-422c-bbcd-d371103b5597',
       'application/json').createRequestProfile( this.name, this.profession);
     }
     //Принимает от сервера информацию с изменениями в профиле пользователя
@@ -338,9 +345,9 @@
   }
 
   //Запрашивает начальную информацию о пользователе
-  new Api(editUserData, 'http://95.216.175.5/cohort2/users/me', 'GET',
+  new Api(editUserData, `${serverUrl}/users/me`, 'GET',
   '3004026e-6e54-422c-bbcd-d371103b5597', 'application/json').createRequest ();
   
   //Создает объект
   const newCardList = new CardList();
-}
+//}
