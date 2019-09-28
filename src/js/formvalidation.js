@@ -1,9 +1,9 @@
-{
+
   //Валидация форм
   //Переменные
  const linkInput = document.querySelector("#link");
 
-class Form {
+  export default class Form {
   
   //Функция проверки Input
   checkInput(element) {
@@ -49,10 +49,4 @@ class Form {
       button_black.disabled = true;
     }
   }
-}
-
-  //Слушатель
-  document.addEventListener("input", event => {
-    new Form().checkInput(event.target);
-  });
 }
